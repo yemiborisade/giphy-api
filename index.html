@@ -3,36 +3,33 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Quoth the Giphy</title>
+  <title>Takin It Way Back</title>
+  <link rel="stylesheet" type="text/css" href="./assets/reset.css">
+  <link rel="stylesheet" type="text/css" href="./assets/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <button data-person="The Fresh Prince of Bel-Air">The Fresh Prince of Bel-Air</button>
-  <button data-person="Martin">Martin</button>
-  <!-- STEP TWO: between the dashed lines below
-        * add three more buttons
-        * add a data-person attribute of famous people you know
-        * with a quote said by them -->
-
-  <!--  -->
-  <button data-person="Rugrats">Rugrats</button>
-  <button data-person="Hey Arnold">Hey Arnold!</button>
-  <button data-person="The Magic School Bus">The Magic School Bus</button>
-  <button data-person="Dragonball Z">Dragonball Z</button>
-  <button data-person="Recess">Recess</button>
-  <button data-person="Arthur">Arthur</button>
 
   <div class="container">
-    <h1>90's Giphy Search</h1>
 
+        <header>
+        <h1>90's Nostalgic Giphy Search</h1>
+
+        <img class="backer-photo" src="https://s-media-cache-ak0.pinimg.com/originals/10/ae/b0/10aeb0a203e9e3ae67a17ef2a2dff268.jpg">
+    </header>
+        <br>
+         <div class="the-buttons"></div> 
+    <br>
     <!-- Rendered Buttons will get Dumped Here  -->
     <div id="buttons-view"></div>
-
+    <br>
     <form id="movie-form">
       <label for="movie-input">Add a Giphy, Yo!</label>
       <input type="text" id="movie-input">
       <br>
             <!-- Button triggers new movie to be added -->
+            <br>
             <input id="add-movie" type="submit" value="Add a 90's Giphy!">
         </form>
 
@@ -43,8 +40,31 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
+    var buttonArray = ["Rugrats", "Recess", "Hey Arnold", "The Magic School Bus", "Martin", "The Fresh Prince of Bel-Air" ]
+    
+    function loadButtons() {
+
+        $(".the-buttons").empty()
+        for (let i = 0; i < buttonArray.length; i++) {
+            var button = $("<button>").addClass("giphyButtons").attr("data-person", buttonArray[i]).text(buttonArray[i]);
+
+
+             $(".the-buttons").append(button);  
+        }
+    }
+    loadButtons();
+
+    $("#add-movie").on("click", function(event) {
+         event.preventDefault()
+        var userInput = $("#movie-input").val().trim()
+         buttonArray.push(userInput)
+         loadButtons()
+    })
+    console.log(document);
+    
     // Event listener for all button elements
-    $("button").on("click", function() {
+    $(document).on("click",".giphyButtons", function() {
+
       // In this case, the "this" keyword refers to the button that was clicked
       var person = $(this).attr("data-person");
 
