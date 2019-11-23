@@ -1,9 +1,16 @@
+body {
+    background: url(https://i.pinimg.com/736x/15/c2/cf/15c2cfc058b97ef173c07420ceba4f52--photo-backdrops-photography-backdrops.jpg);
+    background-repeat: repeat;
+    background-size: contain;
+}
+
 h1 {
     text-align: center;
     font-family: 'Permanent Marker', cursive;
     font-size: 50px;
     text-shadow: 2px 6px yellow;
     color: lightblue;
+    background-color: black;
 }
 
 .giphyButtons {
@@ -21,7 +28,7 @@ h1 {
 header {
     background-color: black;
     text-align: center;
-    height: 150px;
+    height: 90px;
     width: 100%;
     margin: 0 auto;
 }
@@ -29,5 +36,10 @@ header {
 .backer-photo {
     width: 115%;
     margin: 20px 20px 20px -40px;
-    height: 
+}
+
+label {
+    color: red;
+    font-size: 20px;
+    font-weight: 800;
 }
